@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoe List</title>
+    <link rel="stylesheet" th:herf="@{/style.css}"></link>
+</head>
+<body>
+    <h2> Your Shoe List </h2>
+    <div th:unless = "${#lists.isEmpty(shoes)}">
+        <dl th: each="shoe : ${shoes}">
+            <dt class="shoeHeadline">
+                <span th:text = "${shoe.brand}">Brand</span>
+            </dt>
+
+        </dl>
+    </div>
+    <div th:if="${#lists.isEmpty(shoes}">
+        <p>Your have no shoes in your list</p>
+    </div>
+
+    <hr/>
+    <h3>Add a pair of shoe</h3>
+    <form method="post">
+        <label for = "brand">Brand:</label>
+        <input type = "text" name="brand" size="50"> </input><br/>
+        <label for = "name">Name:</label>
+        <input type = "text" name="name" size="50"> </input><br/>
+        <!--<label for = "price">Price:</label>-->
+        <!--<input type = "text" name="price" size="50"> </input><br/>-->
+    </form>
+
+
+</body>
+</html>
